@@ -1,0 +1,12 @@
+# Only the Deeplight landing page goes into the repo.
+# Ignore everything at the top level of this folder...
+/*
+
+# ...except this file and the site folder (with its css, js, fonts, images and scss).
+!/.gitignore
+!/deeplight-landing-page/
+
+# OS clutter, wherever it appears
+.DS_Store
+Thumbs.db
+desktop.ini

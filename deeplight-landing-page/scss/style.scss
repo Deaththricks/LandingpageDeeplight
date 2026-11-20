@@ -426,6 +426,8 @@ textarea {
 
 .ftco-footer {
 	font-size: 16px;
+	// Keep the bottom bar near the bottom edge.
+	padding-bottom: 2.5em;
 	.ftco-footer-logo {
 		text-transform: uppercase;
 		letter-spacing: .1em;
@@ -454,11 +456,77 @@ textarea {
 		text-transform: uppercase;
 		color: rgba(255,255,255,.6);
 	}
-	.ftco-footer-contact a {
-		color: rgba($white, .8);
-		&:hover {
-			color: $primary;
+	// Deeplight footer: brand column, Explore links, Contact Us tile, bottom bar.
+	// (The CSS uses the brand teal #36b9cc; $primary is still the template blue.)
+	.ftco-footer-brand {
+		color: $white;
+		font-weight: 700;
+		font-size: 20px;
+		letter-spacing: .04em;
+		span {
+			color: #36b9cc;
 		}
+	}
+	.ftco-footer-tagline {
+		color: #36b9cc;
+		margin: 10px 0 8px;
+	}
+	p {
+		line-height: 1.7;
+	}
+	.ftco-footer-links {
+		li {
+			margin-bottom: 8px;
+		}
+		a {
+			color: rgba($white, .7);
+			&:hover {
+				color: #36b9cc;
+			}
+		}
+	}
+	.ftco-footer-mail {
+		display: flex;
+		align-items: center;
+		background: rgba($white, .04);
+		border: 1px solid rgba($white, .08);
+		border-radius: 12px;
+		padding: 14px 16px;
+		&:hover {
+			border-color: rgba(#36b9cc, .5);
+		}
+		small {
+			display: block;
+			color: rgba($white, .4);
+			font-size: 11.5px;
+			text-transform: uppercase;
+			letter-spacing: .1em;
+			line-height: 1.5;
+		}
+		b {
+			color: $white;
+			font-weight: 500;
+			word-break: break-all;
+		}
+	}
+	.ftco-footer-mail-icon {
+		flex: 0 0 42px;
+		height: 42px;
+		margin-right: 14px;
+		border-radius: 10px;
+		background: rgba(#36b9cc, .15);
+		color: #36b9cc;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.oi {
+			top: 0;
+		}
+	}
+	.ftco-footer-bottom {
+		border-top: 1px solid rgba($white, .08);
+		padding-top: 22px;
+		font-size: 14px;
 	}
 }
 
@@ -558,33 +626,99 @@ textarea {
 		}
 	}
 }
-.ftco-media-feature {
-	border-top: 4px solid $primary;
-}
-.ftco-icon-badge {
-	width: 72px;
-	height: 72px;
-	margin: 0 auto 1.5rem;
-	border-radius: 50%;
-	background: $primary;
-	color: $white;
-	font-size: 28px;
+// Feature panels: one panel per Deeplight module, each listing its features.
+// (The CSS uses the brand teal #36b9cc; $primary is still the template blue.)
+$module-teal: #36b9cc;
+$module-teal-dark: #1f8696;
+
+.ftco-module {
+	background: $white;
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: 0 10px 30px rgba(38, 49, 53, .07);
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-shadow: 0 6px 16px rgba($primary, .35);
+	flex-direction: column;
 	// Open Iconic glyphs are not all centred in their box: .oi has top: 1px,
 	// the dollar is narrow and hangs below the baseline, the calendar is narrow.
 	.oi {
 		top: 0;
 	}
 	.oi-dollar {
-		left: 2px;
-		top: -3.5px;
+		top: -0.125em;
+		left: 0.07em;
 	}
 	.oi-calendar {
-		left: 2px;
+		left: 0.07em;
 	}
+}
+.ftco-module-head {
+	background: linear-gradient(135deg, $module-teal, $module-teal-dark);
+	color: $white;
+	padding: 20px 24px;
+	display: flex;
+	align-items: center;
+}
+.ftco-module-icon {
+	flex: 0 0 44px;
+	height: 44px;
+	margin-right: 14px;
+	border-radius: 12px;
+	background: rgba($white, .18);
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.ftco-module-title {
+	font-size: 17px;
+	font-weight: 700;
+	letter-spacing: .02em;
+	line-height: 1.4;
+	color: $white;
+	margin: 0;
+}
+.ftco-module-sub {
+	font-size: 13px;
+	line-height: 1.5;
+	color: rgba($white, .85);
+	margin: 0;
+}
+.ftco-module-body {
+	padding: 6px 24px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	// Spreads the items when this panel is stretched to match the taller column beside it.
+	justify-content: space-around;
+}
+.ftco-module-item {
+	display: flex;
+	padding: 18px 0;
+	border-bottom: 1px solid #eef1f2;
+	&:last-child {
+		border-bottom: 0;
+	}
+	h4 {
+		font-size: 17px;
+		margin: 0 0 4px;
+	}
+	p {
+		font-size: 15px;
+		line-height: 1.7;
+		margin: 0;
+	}
+}
+.ftco-item-icon {
+	flex: 0 0 40px;
+	height: 40px;
+	margin-right: 16px;
+	border-radius: 50%;
+	background: #e3f6f9;
+	color: $module-teal;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .ftco-overflow-hidden {
 	overflow: hidden;
